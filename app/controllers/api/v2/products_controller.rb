@@ -1,11 +1,5 @@
-class Api::V1::ProductsController < ApplicationController
+class Api::V2::ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
-  class Product < ::Product
-    def as_json(options={})
-      super.merge(released_on: ( released_at.nil? ? nil : released_at.to_date ) )
-    end
-  end
 
   # GET /products
   # GET /products.json
